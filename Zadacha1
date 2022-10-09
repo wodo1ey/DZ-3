@@ -1,0 +1,30 @@
+#include <iostream>
+#include "pt4.h"
+#include "fstream"
+
+
+using namespace std;
+
+int Fib(int i)
+{
+    int value = 0;
+    if (i < 1) return 0;
+    if (i == 1) return 1;
+    return Fib(i - 1) + Fib(i - 2);
+}
+
+void Solve()
+{
+    Task("TextFile2");
+    ofstream f;
+    f.open("b.tst");
+    int i = 0;
+    int n1, n2;
+    pt >> n1 >> n2;
+    while (i <= n2) {
+        Fib(i);
+        if (i >= n1) f << Fib(i) << endl;
+        i++;
+    }
+    f.close();
+}
