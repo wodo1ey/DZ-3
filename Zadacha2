@@ -14,7 +14,6 @@ void Solve()
 {
     Task("TextFile20");
     int s = 0, y = 0, i = 0;
-    bool z = false;
     fstream f;
     f.open("e.txt");
     while (!f.eof()) {
