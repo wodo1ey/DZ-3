@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	int m, n, k;
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите текущее время:" << endl;
+	cout << "Часы: ", cin >> m, cout << "Минуты: ", cin >> n, cout << "Секунды: ", cin >> k, cout << endl;
+	if (m >= 0 && m <= 23 && n >= 0 && n <= 59 && k >= 0 && k <= 59) {
+		int p, q, r;
+		cout << "Введите время, которое хотите прибавить:" << endl;
+		cout << "Часы: ", cin >> p, cout << "Минуты: ", cin >> q, cout << "Секунды: ", cin >> r, cout << endl;
+		if (p >= 0 && p <= 100 && q >= 0 && q <= 59 && r >= 0 && r <= 59) {
+			int chas = 0, minut = 0, sec = 0;
+			sec = k + r;
+			if (sec > 59) {
+				sec -= 60;
+				minut += 1;
+			}
+			minut += n + q;
+			if (minut > 59) {
+				minut -= 60;
+				chas += 1;
+			}
+			chas += (m + p) - (((m + p) / 24) * 24);
+			if (chas == 24) chas = 0;
+			cout << "Через такое время будет:" << endl;
+			cout << "Часы: " << chas << " Минуты: " << minut << " Секунды: " << sec;
+		}
+		else
+			cout << "Введено некорректное время";
+	}
+	else
+		cout << "Введено некорректное время";
+}
